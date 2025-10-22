@@ -1,0 +1,36 @@
+# Development files
+.git
+.gitignore
+.eslintrc.js
+.prettierrc.js
+tsconfig.json
+gulpfile.js
+
+# Source files (only dist is needed)
+nodes/**/*.ts
+credentials/**/*.ts
+
+# Documentation
+CLAUDE.md
+CONTRIBUTING.md
+QUICKSTART.md
+CHANGELOG.md
+
+# Testing
+docker-compose.yml
+Dockerfile.dev
+scripts/
+
+# Temporary files
+temp-sdk/
+temp-php-sdk/
+node_modules/
+.DS_Store
+*.log
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+

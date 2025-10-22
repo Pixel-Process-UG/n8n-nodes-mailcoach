@@ -1,0 +1,72 @@
+name: Build and Test
+
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main, develop]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [18.x, 20.x]
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build
+        run: npm run build
+
+      - name: Lint
+        run: npm run lint
+        continue-on-error: true
+
+  docker-test:
+    runs-on: ubuntu-latest
+    needs: build
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20.x'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build
+        run: npm run build
+
+      - name: Start Docker Compose
+        run: docker compose up -d
+
+      - name: Wait for n8n
+        run: |
+          timeout 60 bash -c 'until curl -s http://localhost:5678 > /dev/null; do sleep 2; done'
+
+      - name: Check n8n logs
+        run: docker compose logs n8n
+
+      - name: Verify node loaded
+        run: docker compose exec n8n ls -la /data/custom-nodes/n8n-nodes-mailcoach/dist
+
+      - name: Stop Docker Compose
+        run: docker compose down
+

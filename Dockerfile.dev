@@ -1,0 +1,38 @@
+# Development Dockerfile for testing the node locally
+FROM n8nio/n8n:latest
+
+USER root
+
+# Install build dependencies
+RUN apk add --no-cache --virtual .build-deps \
+    python3 \
+    make \
+    g++ \
+    git
+
+# Create custom nodes directory
+RUN mkdir -p /data/custom-nodes
+
+# Copy package files
+WORKDIR /data/custom-nodes/n8n-nodes-mailcoach
+COPY package*.json ./
+COPY tsconfig.json ./
+COPY gulpfile.js ./
+
+# Install dependencies
+RUN npm install
+
+# Copy source files
+COPY credentials ./credentials
+COPY nodes ./nodes
+
+# Build the node
+RUN npm run build
+
+# Clean up
+RUN apk del .build-deps
+
+USER node
+
+WORKDIR /home/node
+

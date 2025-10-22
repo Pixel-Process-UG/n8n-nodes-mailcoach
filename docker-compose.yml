@@ -1,0 +1,49 @@
+services:
+  n8n:
+    image: n8nio/n8n:latest
+    container_name: n8n-mailcoach-test
+    restart: unless-stopped
+    ports:
+      - "5678:5678"
+    environment:
+      - N8N_BASIC_AUTH_ACTIVE=true
+      - N8N_BASIC_AUTH_USER=admin
+      - N8N_BASIC_AUTH_PASSWORD=admin123
+      - WEBHOOK_URL=http://localhost:5678/
+      - GENERIC_TIMEZONE=Europe/Vienna
+      - N8N_LOG_LEVEL=debug
+      # Custom nodes path
+      - N8N_CUSTOM_EXTENSIONS=/data/custom-nodes
+    volumes:
+      - n8n_data:/home/node/.n8n
+      - ./:/data/custom-nodes/n8n-nodes-mailcoach:ro
+    networks:
+      - n8n-network
+
+  # Optional: PostgreSQL database for n8n (production-like setup)
+  postgres:
+    image: postgres:15-alpine
+    container_name: n8n-postgres
+    restart: unless-stopped
+    environment:
+      - POSTGRES_USER=n8n
+      - POSTGRES_PASSWORD=n8n
+      - POSTGRES_DB=n8n
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - n8n-network
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -h localhost -U n8n -d n8n']
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+volumes:
+  n8n_data:
+  postgres_data:
+
+networks:
+  n8n-network:
+    driver: bridge
+

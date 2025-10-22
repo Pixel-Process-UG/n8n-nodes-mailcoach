@@ -1,0 +1,12 @@
+node_modules/
+dist/
+*.log
+.DS_Store
+.env
+temp-sdk/
+temp-php-sdk/
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
