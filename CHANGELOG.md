@@ -13,21 +13,26 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Now explicitly retrieves credentials in execute method
 - All 34 operations now properly construct full URLs with baseURL prefix
 - Improved error handling and URL validation
+- Fixed prepublishOnly script syntax error
 
 ### Added
-- GitHub Actions workflow for automated npm publishing
+- GitHub Actions workflow for automated npm publishing with provenance
 - Separate publish workflow triggered on GitHub releases
 - Version check workflow for pull requests
 - Automated CI/CD pipeline with Node 18.x and 20.x testing
 - Docker environment testing in CI/CD
-- CONTRIBUTE.md with detailed contribution guidelines
+- CONTRIBUTING.md with detailed contribution guidelines
+- OIDC trusted publishing support
+- npm provenance attestation
 
 ### Changed
+- **Package name**: Updated to `@pixelandprocess/n8n-nodes-mailcoach` (scoped package)
 - Updated organization to Pixel Process UG
 - Enhanced documentation with Pixel & Process branding
 - Added GitHub issue templates and PR template
 - Improved overall project structure
 - Cleaned up extra documentation files
+- Added publishConfig to package.json
 
 ## [1.0.0] - 2025-10-22
 

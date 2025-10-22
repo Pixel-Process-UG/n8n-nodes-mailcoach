@@ -1,6 +1,6 @@
 # n8n-nodes-mailcoach
 
-[![npm version](https://img.shields.io/npm/v/n8n-nodes-mailcoach.svg?style=flat-square)](https://www.npmjs.com/package/n8n-nodes-mailcoach)
+[![npm version](https://img.shields.io/npm/v/@pixelandprocess/n8n-nodes-mailcoach.svg?style=flat-square)](https://www.npmjs.com/package/@pixelandprocess/n8n-nodes-mailcoach)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](https://opensource.org/licenses/MIT)
 [![n8n](https://img.shields.io/badge/n8n-community%20node-FF6D5A?style=flat-square)](https://n8n.io)
 [![Created by Pixel & Process](https://img.shields.io/badge/Created%20by-Pixel%20%26%20Process-blue?style=flat-square)](https://pixelandprocess.de/)
@@ -26,13 +26,19 @@ This is an n8n community node that lets you use [Mailcoach](https://mailcoach.ap
 
 Follow the [installation guide](https://docs.n8n.io/integrations/community-nodes/installation/) in the n8n community nodes documentation.
 
+### Community Installation
+
+```bash
+npm install @pixelandprocess/n8n-nodes-mailcoach
+```
+
 ### Manual Installation (for development)
 
 1. Clone this repository
 2. Install dependencies: `npm install`
 3. Build the node: `npm run build`
 4. Link the node: `npm link`
-5. Navigate to your n8n installation and link the node: `npm link n8n-nodes-mailcoach`
+5. Navigate to your n8n installation and link the node: `npm link @pixelandprocess/n8n-nodes-mailcoach`
 
 ## Operations
 
