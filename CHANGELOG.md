@@ -101,6 +101,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Template field handling for campaigns and transactional mails
 - Custom attributes support for subscribers
 
-[1.0.1]: https://github.com/Pixel-Process-UG/n8n-mailcoach/releases/tag/v1.0.1
-[1.0.0]: https://github.com/Pixel-Process-UG/n8n-mailcoach/releases/tag/v1.0.0
+[1.0.1]: https://github.com/Pixel-Process-UG/n8n-nodes-mailcoach/releases/tag/v1.0.1
+[1.0.0]: https://github.com/Pixel-Process-UG/n8n-nodes-mailcoach/releases/tag/v1.0.0
 

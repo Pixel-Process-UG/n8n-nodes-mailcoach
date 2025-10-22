@@ -5,7 +5,7 @@ Thank you for your interest in contributing! This project is maintained by [Pixe
 ## 🚀 Quick Start
 
 1. **Fork** the repository
-2. **Clone** your fork: `git clone https://github.com/YOUR_USERNAME/n8n-mailcoach.git`
+2. **Clone** your fork: `git clone https://github.com/YOUR_USERNAME/n8n-nodes-mailcoach.git`
 3. **Install** dependencies: `npm install`
 4. **Build**: `npm run build`
 5. **Test**: `docker compose up -d` → http://localhost:5678
@@ -52,7 +52,7 @@ Before submitting:
 
 ## 📞 Questions?
 
-- 💬 [GitHub Issues](https://github.com/Pixel-Process-UG/n8n-mailcoach/issues)
+- 💬 [GitHub Issues](https://github.com/Pixel-Process-UG/n8n-nodes-mailcoach/issues)
 - 📧 Email: info@pixel-process.com
 - 🌐 Website: [pixelandprocess.de](https://pixelandprocess.de/)
 

@@ -11,14 +11,14 @@
     "newsletter"
   ],
   "license": "MIT",
-  "homepage": "https://github.com/Pixel-Process-UG/n8n-mailcoach",
+  "homepage": "https://github.com/Pixel-Process-UG/n8n-nodes-mailcoach",
   "author": {
     "name": "Pixel Process UG",
     "email": "info@pixel-process.com"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Pixel-Process-UG/n8n-mailcoach.git"
+    "url": "git+https://github.com/Pixel-Process-UG/n8n-nodes-mailcoach.git"
   },
   "main": "index.js",
   "scripts": {

@@ -171,8 +171,8 @@ To use this node, you need to configure Mailcoach API credentials:
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/Pixel-Process-UG/n8n-mailcoach.git
-   cd n8n-mailcoach
+   git clone https://github.com/Pixel-Process-UG/n8n-nodes-mailcoach.git
+   cd n8n-nodes-mailcoach
    ```
 
 2. Install dependencies:
@@ -320,7 +320,7 @@ This project uses GitHub Actions to automatically publish to npm when a new rele
 
 ## Issues
 
-If you encounter any issues or have questions, please [open an issue](https://github.com/Pixel-Process-UG/n8n-mailcoach/issues) on GitHub.
+If you encounter any issues or have questions, please [open an issue](https://github.com/Pixel-Process-UG/n8n-nodes-mailcoach/issues) on GitHub.
 
 ## License
 
