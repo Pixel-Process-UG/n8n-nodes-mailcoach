@@ -316,8 +316,7 @@ This project uses GitHub Actions to automatically publish to npm when a new rele
 
 - **Build & Test** - Runs on every push/PR
 - **Version Check** - Ensures version is bumped in PRs
-- **Publish to npm** - Automatic on git tags (v*)
-- **Release Publish** - Automatic on GitHub releases
+- **Publish to npm** - Automatic when GitHub release is created
 
 ## Issues
 
