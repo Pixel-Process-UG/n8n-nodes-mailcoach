@@ -14,12 +14,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - All 34 operations now properly construct full URLs with baseURL prefix
 - Improved error handling and URL validation
 
+### Added
+- GitHub Actions workflow for automated npm publishing
+- Separate publish workflow triggered on GitHub releases
+- Version check workflow for pull requests
+- Automated CI/CD pipeline with Node 18.x and 20.x testing
+- Docker environment testing in CI/CD
+- CONTRIBUTE.md with detailed contribution guidelines
+
 ### Changed
 - Updated organization to Pixel Process UG
 - Enhanced documentation with Pixel & Process branding
-- Added GitHub Actions workflow for CI/CD
-- Added issue templates and PR template
+- Added GitHub issue templates and PR template
 - Improved overall project structure
+- Cleaned up extra documentation files
 
 ## [1.0.0] - 2025-10-22
 

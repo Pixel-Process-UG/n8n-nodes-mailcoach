@@ -1,0 +1,43 @@
+name: Version Check
+
+on:
+  pull_request:
+    branches: [main]
+
+jobs:
+  check-version:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout PR branch
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref }}
+
+      - name: Get PR version
+        id: pr-version
+        run: echo "version=$(node -p "require('./package.json').version")" >> $GITHUB_OUTPUT
+
+      - name: Checkout main branch
+        uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Get main version
+        id: main-version
+        run: echo "version=$(node -p "require('./package.json').version")" >> $GITHUB_OUTPUT
+
+      - name: Compare versions
+        run: |
+          PR_VERSION=${{ steps.pr-version.outputs.version }}
+          MAIN_VERSION=${{ steps.main-version.outputs.version }}
+          
+          if [ "$PR_VERSION" == "$MAIN_VERSION" ]; then
+            echo "❌ Version not updated! Please bump version in package.json"
+            echo "Current: $MAIN_VERSION"
+            echo "PR: $PR_VERSION"
+            exit 1
+          else
+            echo "✅ Version updated from $MAIN_VERSION to $PR_VERSION"
+          fi
+

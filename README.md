@@ -287,13 +287,37 @@ Based on the [official Mailcoach PHP SDK](https://github.com/spatie/mailcoach-sd
 
 ## Contributing
 
-Contributions are welcome! Please feel free to submit a Pull Request.
+Contributions are welcome! Please read [CONTRIBUTING.md](CONTRIBUTING.md) for detailed guidelines.
 
+Quick start:
 1. Fork the repository
 2. Create your feature branch (`git checkout -b feature/amazing-feature`)
 3. Commit your changes (`git commit -m 'Add some amazing feature'`)
 4. Push to the branch (`git push origin feature/amazing-feature`)
 5. Open a Pull Request
+
+## Publishing
+
+### Automated Publishing
+
+This project uses GitHub Actions to automatically publish to npm when a new release is created:
+
+1. **Update version** in `package.json`
+2. **Update** `CHANGELOG.md` with changes
+3. **Commit and push** changes
+4. **Create a tag**:
+   ```bash
+   git tag -a v1.0.1 -m "Release v1.0.1"
+   git push origin v1.0.1
+   ```
+5. **Create GitHub Release** - Publishing to npm happens automatically
+
+### GitHub Actions Workflows
+
+- **Build & Test** - Runs on every push/PR
+- **Version Check** - Ensures version is bumped in PRs
+- **Publish to npm** - Automatic on git tags (v*)
+- **Release Publish** - Automatic on GitHub releases
 
 ## Issues
 
