@@ -5,8 +5,6 @@
 [![n8n](https://img.shields.io/badge/n8n-community%20node-FF6D5A?style=flat-square)](https://n8n.io)
 [![Created by Pixel & Process](https://img.shields.io/badge/Created%20by-Pixel%20%26%20Process-blue?style=flat-square)](https://pixelandprocess.de/)
 
-![n8n.io - Workflow Automation](https://raw.githubusercontent.com/n8n-io/n8n/master/assets/n8n-logo.png)
-
 This is an n8n community node that lets you use [Mailcoach](https://mailcoach.app) in your n8n workflows. Mailcoach is a powerful email marketing platform for managing email lists, campaigns, automations, and transactional emails.
 
 [n8n](https://n8n.io/) is a [fair-code licensed](https://docs.n8n.io/reference/license/) workflow automation platform.
