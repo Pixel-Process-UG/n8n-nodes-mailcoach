@@ -1,6 +1,6 @@
 {
   "name": "@pixelandprocess/n8n-nodes-mailcoach",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "n8n node for Mailcoach API - Manage email lists, subscribers, campaigns, and transactional emails",
   "keywords": [
     "n8n-community-node-package",
