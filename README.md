@@ -77,6 +77,8 @@ This node supports the following resources and operations:
 - **Unsubscribe**: Unsubscribe a subscriber
 - **Resubscribe**: Resubscribe a previously unsubscribed subscriber
 - **Resend Confirmation**: Resend the confirmation email to a subscriber
+- **Add Tags**: Add tags to a subscriber
+- **Remove Tags**: Remove tags from a subscriber
 
 ### Tag
 

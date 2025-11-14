@@ -204,6 +204,12 @@ export class Mailcoach implements INodeType {
 				},
 				options: [
 					{
+						name: 'Add Tags',
+						value: 'addTags',
+						description: 'Add tags to a subscriber',
+						action: 'Add tags to a subscriber',
+					},
+					{
 						name: 'Confirm',
 						value: 'confirm',
 						description: 'Confirm a subscriber',
@@ -232,6 +238,12 @@ export class Mailcoach implements INodeType {
 						value: 'getAll',
 						description: 'Get all subscribers',
 						action: 'Get all subscribers',
+					},
+					{
+						name: 'Remove Tags',
+						value: 'removeTags',
+						description: 'Remove tags from a subscriber',
+						action: 'Remove tags from a subscriber',
 					},
 					{
 						name: 'Resend Confirmation',
@@ -774,11 +786,25 @@ export class Mailcoach implements INodeType {
 				displayOptions: {
 					show: {
 						resource: ['subscriber'],
-						operation: ['get', 'update', 'delete', 'confirm', 'unsubscribe', 'resubscribe', 'resendConfirmation'],
+						operation: ['get', 'update', 'delete', 'confirm', 'unsubscribe', 'resubscribe', 'resendConfirmation', 'addTags', 'removeTags'],
 					},
 				},
 				default: '',
 				description: 'The UUID of the subscriber',
+			},
+			{
+				displayName: 'Tags',
+				name: 'tags',
+				type: 'string',
+				required: true,
+				displayOptions: {
+					show: {
+						resource: ['subscriber'],
+						operation: ['addTags', 'removeTags'],
+					},
+				},
+				default: '',
+				description: 'Comma-separated list of tags to add or remove',
 			},
 			{
 				displayName: 'Email',
@@ -1699,6 +1725,40 @@ export class Mailcoach implements INodeType {
 						);
 
 						returnData.push({ success: true, message: 'Confirmation email resent' });
+					} else if (operation === 'addTags') {
+						const subscriberId = this.getNodeParameter('subscriberId', i) as string;
+						const tags = this.getNodeParameter('tags', i) as string;
+
+						const tagsArray = tags.split(',').map((tag) => tag.trim()).filter((tag) => tag.length > 0);
+
+						const response = await this.helpers.httpRequestWithAuthentication.call(
+							this,
+							'mailcoachApi',
+							{
+								method: 'POST',
+								url: `${baseUrl}/subscribers/${subscriberId}/tags`,
+								body: { tags: tagsArray },
+							},
+						);
+
+						returnData.push(response.data || response || { success: true, message: 'Tags added' });
+					} else if (operation === 'removeTags') {
+						const subscriberId = this.getNodeParameter('subscriberId', i) as string;
+						const tags = this.getNodeParameter('tags', i) as string;
+
+						const tagsArray = tags.split(',').map((tag) => tag.trim()).filter((tag) => tag.length > 0);
+
+						const response = await this.helpers.httpRequestWithAuthentication.call(
+							this,
+							'mailcoachApi',
+							{
+								method: 'POST',
+								url: `${baseUrl}/subscribers/${subscriberId}/tags/remove`,
+								body: { tags: tagsArray },
+							},
+						);
+
+						returnData.push(response.data || response || { success: true, message: 'Tags removed' });
 					}
 				} else if (resource === 'tag') {
 					if (operation === 'create') {
