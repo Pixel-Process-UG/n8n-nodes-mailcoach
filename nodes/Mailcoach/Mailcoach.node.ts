@@ -1891,7 +1891,6 @@ export class Mailcoach implements INodeType {
 								}
 								body.replacements = replacements;
 							}
-							delete body.replacements;
 						}
 
 						await this.helpers.httpRequestWithAuthentication.call(
